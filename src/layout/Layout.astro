@@ -1,14 +1,27 @@
 ---
-import '../styles/index.scss'
+import '../styles/modal.scss'
 
-import Layout from '../layouts/Layout.astro'
+var sTitle = 'Transit Tracker'
+var { title } = Astro.props
+
+
+if (
+    title === 'Home' || title === '' || 
+    !!title === false || title === null
+) {
+    docTitle = sTitle
+}
+else {
+    docTitle = `${title} | ${sTitle}`
+}
+
 ---
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Transit Tracker</title>
+    <title>{docTitle}</title>
     <link rel="icon" href="/assets/favicon.png" />
   </head>
   <body>
